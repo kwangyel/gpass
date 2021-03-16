@@ -1,161 +1,100 @@
-# POST http://localhost:4321/building/create HTTP/1.1
-# content-type: application/json
-
-# {
-#     "block_no" : "blocktest",
-#     "building_owner" : "namgay",
-#     "cidOwner" : "10503000532",
-#     "contactOwner" : "77385314",
-#     "constYear" : "2020",
-#     "floors" : "1",
-#     "attic" : true,
-#     "basement" : false,
-#     "buildingStyle" : "no style",
-#     "structureType" : "no type",
-#     "materialType" : "wood",
-#     "roofMaterial" : "cgi",
-#     "sewerTreatment" : "no",
-#     "wasteCollection" : "no",
-#     "wasteCollectionFrequency" : "not much",
-#     "waterSupply" : "no",
-#     "buildingUse" : "residential",
-#     "residentialUnits" : 1,
-#     "commercialUnits" : 0,
-#     "officeUnits" : 0,
-#     "user_id":0
-# }
-
-# GET http://localhost:4321/building/get/1a
-
-# PATCH http://localhost:4321/building/update HTTP/1.1
+# ####### Agency
+# POST http://localhost:7777/agency/create HTTP/1.1
 # Content-Type: application/json
 
 # {
-#     "id":2,
-#     "building_owner":"Namgay Dorji"
+#     "name":"UNDP"
 # }
 
-# DELETE http://localhost:4321/building/delete/1
+# GET http://localhost:7777/agency/get/4
 
-# Dzongkhag service
-
-# GET http://localhost:4321/dzongkhag/get-all
-
-# POST http://localhost:7777/household/create Http/1.1
+# PATCH http://localhost:7777/agency/update HTTP/1.1
 # Content-Type: application/json
 
 # {
-#     "structure_id":123,
-#     "head":"kinley",
-#     "gender":"m",
-#     "cidHead":"1230000",
-#     "age":23,
-#     "martialStatus":"single",
-#     "employment":"civil",
-#     "employmentOrg":"mowhs",
-#     "yearsInService":5.2,
-#     "numberHousehold":4,
-#     "incomeEarner":1,
-#     "householdIncome":25000.0,
-#     "ownHouse":false,
-#     "censusDzo":"HAA",
-#     "distToWork":7.4,
-#     "commuteCost":45,
-#     "houseOccupation":"no",
-#     "rent":8500,
-#     "typeRent":"stest",
-#     "rooms":4,
-#     "yearsResiding":4,
-#     "rentIncreased":false,
-#     "rentWaived":false,
-#     "rentWaivedPrecent":50,
-#     "ownType":"test",
-#     "howOwned":"constructed",
-#     "yearAcquisition":1,
-#     "cost":1230,
-#     "meanFinance":"bank",
-#     "emi":42000,
-#     "user_id":1,
-#     "members":[
-#         {"idNumber":123,"age":24,"gender":"Male","type":"CID"},
-#         {"idNumber":321,"age":24,"gender":"Male","type":"CID"}
-#     ]
+#     "id":4,
+#     "name":"UNICEF"
 # }
 
-# GET http://localhost:4321/household/get-all/123
+# DELETE http://localhost:7777/agency/delete/3
 
-
-# PATCH http://localhost:4321/household/update HTTP/1.1
+################Agent
+# POST http://localhost:7777/agent/create HTTP/1.1
 # Content-Type: application/json
 
 # {
-#     "id":5,
-#     "howOwned":"constructed"
+#     "name":"kwangyel11",
+#     "type":"person",
+#     "idNumber": "10503000532",
+#     "agencyId":4
 # }
 
-# DELETE http://localhost:4321/household/delete/5
 
-# GET http://localhost:4321/household/get/4
+# GET http://localhost:7777/agent/get/1
 
-
-# POST http://localhost:4321/image/create HTTP/1.1
-# Content-Type: application/json
-
-# {
-#     "structure_id":123,
-#     "user_id":0,
-#     "uri":"/uploads/123.png"
-# }
-
-# GET http://localhost:4321/image/get-all/123
-
-# GET http://localhost:4321/image/get/1
-
-# PATCH http://localhost:4321/image/update HTTP/1.1
+# PATCH http://localhost:7777/agent/update HTTP/1.1
 # Content-Type: application/json
 
 # {
 #     "id":1,
-#     "structure_id":111
+#     "name":"anon"
 # }
 
-# DELETE http://localhost:4321/image/delete/1
+# DELETE http://localhost:7777/agent/delete/1
 
-# TODO test structure routes
 
-# POST http://localhost:7777/member/create-bulk HTTP/1.1
+
+##################Movement
+
+# POST http://localhost:7777/movement/create HTTP/1.1
 # Content-Type: application/json
 
 # {
-#     "members":[
-#         {"hhId":1,"idNumber":10503000532,"age":26,"gender":"male","type":"CID"},
-#         {"hhId":1,"idNumber":10503000527,"age":54,"gender":"female","type":"CID"}
-#     ]
+#     "agentId":3,
+#     "type":"person",
+#     "time":"2021-03-15",
+#     "visitorType":"car",
+#     "requestId":null
 # }
 
-# DELETE http://localhost:7777/building/delete/1 
 
-# DELETE http://localhost:7777/household/delete/1 
-# DELETE http://localhost:7777/structure/delete/1481
+# GET http://localhost:7777/movement/get/1
 
-
-# PATCH http://localhost:7777/household/update HTTP/1.1
+# PATCH http://localhost:7777/movement/update HTTP/1.1
 # Content-Type: application/json
 
 # {
-#     "id":5,
-#     "members":[
-#         {"id":1,"hhId":65,"idNumber":10503000532,"age":26,"gender":"male","type":"CID"},
-#         {"id":2,"hhId":65,"idNumber":10503000527,"age":54,"gender":"female","type":"CID"}
-#     ]
+#     "id":1,
+#     "type":"person"
 # }
 
-POST http://localhost:7777/household/create HTTP/1.1
-Content-Type: application/json 
+# DELETE http://localhost:7777/movement/delete/1
 
-{
-    "unitId":"test",
-    "members":null,
-    "structure_id":123123,
-    "userId":123
-}
+
+
+
+###########Reqeust
+
+# POST http://localhost:7777/request/create HTTP/1.1
+# Content-Type: application/json
+
+# {
+#     "requesterId":3,
+#     "name":"fried",
+#     "time":"2021-03-15",
+#     "type":"person"
+# }
+
+
+# GET http://localhost:7777/request/get/1
+
+# PATCH http://localhost:7777/request/update HTTP/1.1
+# Content-Type: application/json
+
+# {
+#     "id":1,
+#     "type":"car"
+# }
+
+# DELETE http://localhost:7777/request/delete/1
+

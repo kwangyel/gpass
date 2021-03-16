@@ -8,6 +8,7 @@ class agencyController{
     static async create(req,res){
         util.setData(null)
         const data = req.body
+        console.log(data)
 
         try{
             const item = await agencyService.create(data)
