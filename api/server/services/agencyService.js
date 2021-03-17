@@ -23,6 +23,15 @@ class agencyService{
         }
     }
 
+    static async retrieveAll(){
+        try{
+            const item = await database.Agency.findAll()
+            return item
+        }catch(error){
+            throw error
+        }
+    }
+
     static async update(id,data){
         try{
             const item = await database.Agency.update(data,{

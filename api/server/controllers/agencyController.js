@@ -47,6 +47,25 @@ class agencyController{
         }
     }
     
+    static async retrieveAll(req,res){
+        util.setData(null)
+
+        try{
+            const item = await agencyService.retrieveAll()
+            if(item){
+                util.setSuccess(200,"retrieved")
+                util.setData(item)
+                return util.send(res)
+            }
+            util.setFailure(200,"No record found")
+            return util.send(res)
+        }catch(err){
+            console.log(err)
+            util.setError(200,"Error")
+            return util.send(res)
+        }
+    }
+
     static async update(req,res){
         const id = req.body.id
         const data = req.body

@@ -5,6 +5,7 @@ const router=Router();
 
 router.post('/create',agencyController.create)
 router.get('/get/:id',agencyController.retrieve)
+router.get('/get-all',agencyController.retrieveAll)
 router.patch('/update',agencyController.update)
 router.delete('/delete/:id',agencyController.delete)
 
