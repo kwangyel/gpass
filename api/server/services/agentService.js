@@ -23,6 +23,14 @@ class agentService{
         }
     }
 
+    static async retrieveAll(){
+        try{
+            const item = await database.Agent.findAll()
+            return item
+        }catch(error){
+            throw error
+        }
+    }
 
     static async update(id,data){
         try{

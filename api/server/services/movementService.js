@@ -23,6 +23,26 @@ class movementSerivce{
         }
     }
 
+    static async retrieveToday(){
+        try{
+            const Op = Sequelize.Op;
+            const TODAY_START = new Date().setHours(0, 0, 0, 0);
+            const NOW = new Date();
+
+            const item = await database.Movement.findAll({
+                where: {
+                    created: { 
+                      [Op.gt]: TODAY_START,
+                      [Op.lt]: NOW
+                    }
+                }
+            })
+            return item
+        }catch(error){
+            throw error
+        }
+    }
+
     static async update(id,data){
         try{
             const item = await database.Movement.update(data,{
